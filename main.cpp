@@ -15,7 +15,7 @@ int main()
 	Inventory inventory;
 	muduo::Thread t(threadFunc, std::ref(inventory));
 	t.start();
-	usleep(500 * 1000);
+	usleep(100 * 1000);
 	inventory.printAll();
 	t.join();
 	return 0;
