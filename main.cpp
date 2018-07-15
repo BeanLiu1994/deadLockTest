@@ -13,7 +13,7 @@ void threadFunc(Inventory& inventory)
 int main()
 {
 	Inventory inventory;
-	muduo::Thread t(threadFunc, std::ref(inventory));
+	muduo::Thread t([&]() {threadFunc(inventory); });
 	t.start();
 	usleep(100 * 1000);
 	inventory.printAll();
